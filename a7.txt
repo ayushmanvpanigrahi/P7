@@ -1,0 +1,66 @@
+Practical 7
+
+ifconfig
+
+rpm -q vsftpd
+
+cd /var/ftp
+ls
+
+cd pub
+touch filee1
+mkdir dirr1
+
+cd /etc/vsftpd
+ls
+mv vsftpd.conf vsftpd.conf.sample
+
+vi vsftpd.conf
+
+listen=yes
+write_enable=yes
+anon_upload_enable=yes
+
+systemctl restart vsftpd
+systemctl status vsftpd
+systemctl stop firewalld
+
+
+setenforce 0
+chmod 777 /var/ftp/pub
+
+client:=
+
+ifconfig
+
+rpm -q ftp
+
+mount /dev/sr0/mnt
+
+rpm -ivh ftp*
+
+
+ftp 10.0.0.100
+(write: ftp)
+(enter passward:redhat)
+cd /pub
+get file1
+ls
+touch file2
+put file2
+
+bye (for close ftp)
+
+
+go to firefox and type:- ftp://10.0.0.100/
+
+and also this type:- ftp://10.0.0.100/pub/
+
+
+
+server:-
+
+cd /etc/vsftpd
+ls /var/ftp/pub
+ls -l /var/ftp/pub
+
